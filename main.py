@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import matplotlib as mp
 from utils import normalize_dataframe
+from knn_classifier import KNNClassifier
 
 data = load_wine()
 X = pd.DataFrame(data.data, columns=data.feature_names)
@@ -31,3 +32,9 @@ print(f"X_train: {X_train.shape}")
 print(f"X_test: {X_test.shape}")
 print(f"y_train: {y_train.shape}")
 print(f"y_test: {y_test.shape}")
+
+knn = KNNClassifier(k=3)
+y_pred = knn(X_test, X_train, y_train)
+
+print(y_pred)
+print(y_test.values)
