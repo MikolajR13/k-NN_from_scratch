@@ -29,7 +29,7 @@ class KNNClassifier:
         for i in range(X_test.shape[0]):
 
             nearest_neighbors = np.argsort(distances[i])[:self.k]
-            nearest_distances = distances[i][nearest_neighbors]
+            print(nearest_neighbors)
             nearest_labels = self.y_train[nearest_neighbors]
 
             labels_sum, value = np.unique(nearest_labels, return_counts=True)

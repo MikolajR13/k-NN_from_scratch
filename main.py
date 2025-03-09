@@ -5,6 +5,7 @@ import numpy as np
 import matplotlib as mp
 from utils import normalize_dataframe
 from knn_classifier import KNNClassifier
+from metrics import Metrics
 
 data = load_wine()
 X = pd.DataFrame(data.data, columns=data.feature_names)
@@ -38,3 +39,7 @@ y_pred = knn(X_test, X_train, y_train)
 
 print(y_pred)
 print(y_test.values)
+
+metrics = Metrics()
+results = metrics(y_test, y_pred, 'macro')
+print(results)
